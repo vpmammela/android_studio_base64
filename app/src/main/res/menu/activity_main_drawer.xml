@@ -18,6 +18,9 @@
             android:title="@string/menu_slideshow" />
         <item
             android:id="@+id/getImageFragment"
-            android:title="Get Image" />
+            android:title="GET Image" />
+        <item
+            android:id="@+id/postImageFragment"
+            android:title="POST Image" />
     </group>
 </menu>

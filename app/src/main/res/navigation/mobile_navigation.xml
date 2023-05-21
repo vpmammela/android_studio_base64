@@ -27,4 +27,9 @@
         android:name="com.example.base64images.GetImageFragment"
         android:label="fragment_get_image"
         tools:layout="@layout/fragment_get_image" />
+    <fragment
+        android:id="@+id/postImageFragment"
+        android:name="com.example.base64images.PostImageFragment"
+        android:label="fragment_post_image"
+        tools:layout="@layout/fragment_post_image" />
 </navigation>
