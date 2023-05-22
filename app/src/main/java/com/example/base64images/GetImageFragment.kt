@@ -44,7 +44,7 @@ class GetImageFragment : Fragment() {
         // this is the url where we want to get our data
         // Note: if using a local server, use http://10.0.2.2 for localhost. this is a virtual address for Android emulators, since
         // localhost refers to the Android device instead of your computer
-        val JSON_URL = "http://10.0.2.2:8055/items/Base64/1?access_token=L_LruBFG3SiZWRFwKTA17XLyC9WnFQAL"
+        val JSON_URL = "http://10.0.2.2:8055/items/Base64/6?access_token=L_LruBFG3SiZWRFwKTA17XLyC9WnFQAL"
 
         val stringRequest: StringRequest = object : StringRequest(
             Request.Method.GET, JSON_URL,
@@ -56,14 +56,9 @@ class GetImageFragment : Fragment() {
                 var item : Base64Image = gson.fromJson(response, Base64Image::class.java)
 
                 val base64Image = item.data?.image
-                val base64ImageWithoutPrefix = base64Image?.substring(base64Image.indexOf(",") + 1)
-
-                val decodedBytes = Base64.decode(base64ImageWithoutPrefix, Base64.DEFAULT)
-
-
+                val decodedBytes = Base64.decode(base64Image, Base64.DEFAULT)
                 val bitmap = BitmapFactory.decodeByteArray(decodedBytes, 0, decodedBytes.size)
                 binding.imageViewBase64.setImageBitmap(bitmap)
-
 
             },
             Response.ErrorListener {
